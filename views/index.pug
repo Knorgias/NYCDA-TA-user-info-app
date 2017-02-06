@@ -1,0 +1,10 @@
+extends ./application.pug
+
+block content
+  .container
+    h1 All Users
+    hr
+    each ADSGHLSDKFHSD in users
+      .card.card-block
+        h4(class="card-title")= ADSGHLSDKFHSD.firstname + " " + ADSGHLSDKFHSD.lastname
+        p(class="card-text")= "Email: " + ADSGHLSDKFHSD.email
