@@ -20,7 +20,7 @@ router.get('/:query', (request, response) => {
   console.log('RESULTS ARE:');
   console.log(request.params.query);
 
-  response.render('search/show-users', { results: results });
+  response.render('search/show-results', { results: results });
 
 });
 
