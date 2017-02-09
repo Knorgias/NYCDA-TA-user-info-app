@@ -1,9 +1,8 @@
 const fs = require('fs');
 
-const users = JSON.parse(fs.readFileSync('users.json'));
+var users = JSON.parse(fs.readFileSync('users.json'));
 
 module.exports = {
-
   getUsers: function() {
     return users;
   },
@@ -21,6 +20,7 @@ module.exports = {
 
   addUser: function(userObject) {
     users.push(userObject);
+
     fs.writeFile('users.json', JSON.stringify(users), (error, data) => {
       if (error) {
         throw error;

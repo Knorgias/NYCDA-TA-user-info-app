@@ -1,21 +1,27 @@
 const express = require('express'),
       fs = require('fs'),
-      router = express.Router();
+      router = express.Router(),
+      app = express();
 
-var userStore = require('./../user-reader');
+const displayUsers = require('./../user-store');
+
 
 router.get('/', (request, response) => {
-  response.render('search/search-users');
+  response.render('search/search');
 });
 
 router.post('/', (request, reponse) => {
   reponse.redirect('/search/' + request.body.query);
 });
 
+
 router.get('/:query', (request, response) => {
-  var results = userStore.searchUsers(request.params.query);
+  var results = displayUsers.searchUsers(request.params.query);
+  console.log('RESULTS ARE:');
+  console.log(request.params.query);
 
   response.render('search/show-users', { results: results });
+
 });
 
 module.exports = router;
