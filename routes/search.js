@@ -3,7 +3,7 @@ const express = require('express'),
       router = express.Router(),
       app = express();
 
-const displayUsers = require('./../user-reader');
+const userStore = require('./../user-reader');
 
 
 router.get('/', (request, response) => {
@@ -16,7 +16,7 @@ router.post('/', (request, reponse) => {
 
 
 router.get('/:query', (request, response) => {
-  var results = displayUsers.searchUsers(request.params.query);
+  var results = userStore.searchUsers(request.params.query);
   console.log('RESULTS ARE:');
   console.log(request.params.query);
 

@@ -10,7 +10,7 @@ const userRoutes = require('./routes/users'),
 			addRoutes = require('./routes/add-user');
 
 const app = express();
-		displayUsers = require('./user-reader');
+		userStore = require('./user-reader');
 
 app.use(express.static('public'));
 
@@ -29,11 +29,11 @@ app.use('/search', searchRoutes);
 app.use('/add-user', addRoutes);
 
 app.get('/', (request, response) => {
-	response.render('index', { users: displayUsers.getUsers() });
+	response.render('index', { users: userStore.getUsers() });
 });
 
 app.get('/api/search/*', (req, res) => {
-  var results = displayUsers.searchUsers(req.params[0]);
+  var results = userStore.searchUsers(req.params[0]);
   res.json(results);
 });
 
