@@ -6,7 +6,7 @@ const express = require('express'),
 			fs = require('fs');
 
 const app = express();
-		userStore = require('./user-reader');
+		UserReader = require('./user-reader');
 
 /**Create route objects from the modules */
 const 	userRoutes = require('./routes/users'),
@@ -22,7 +22,7 @@ app.use(express.static('./public'));
 /**Set to use the morgan module */
 app.use(morgan('dev'));
 
-/**To be seen */
+/**No URL encoding */
 app.use(bodyParser.urlencoded({ extended: false }));
 
 /**Use the created routes objects within our app */
@@ -34,12 +34,12 @@ app.use('/add-user', addRoutes);
 
 /**Get request in root with callback function */
 app.get('/', (request, response) => {
-	response.render('index', { users: userStore.getUsers() });
+	response.render('index', { users: UserReader.getUsers() });
 });
 
 /**Get request in  /api/search/* with results given to res as json */
 app.get('/api/search/*', (req, res) => {
-  var results = userStore.searchUsers(req.params[0]);
+  var results = UserReader.searchUsers(req.params[0]);
   res.json(results);
 });
 
