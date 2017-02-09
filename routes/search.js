@@ -3,7 +3,7 @@ const express = require('express'),
       router = express.Router(),
       app = express();
 
-const displayUsers = require('./../user-store');
+const displayUsers = require('./../user-reader');
 
 
 router.get('/', (request, response) => {

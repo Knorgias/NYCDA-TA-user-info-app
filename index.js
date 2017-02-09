@@ -1,7 +1,6 @@
 const express = require('express'),
 			pug = require('pug'),
 			morgan = require('morgan'),
-			chalk = require('chalk'),
 			bodyParser = require('body-parser'),
 			fs = require('fs');
 
@@ -10,10 +9,8 @@ const userRoutes = require('./routes/users'),
 			resultRoutes = require('./routes/search'),
 			addRoutes = require('./routes/add-user');
 
-var app = express();
-		displayUsers = require('./user-store');
-
-var likeStore = JSON.parse(fs.readFileSync('likes.json'));
+const app = express();
+		displayUsers = require('./user-reader');
 
 app.use(express.static('public'));
 
@@ -40,20 +37,7 @@ app.get('/api/search/*', (req, res) => {
   res.json(results);
 });
 
-app.post('/like', (request, response) => {
-  likeStore.likeCount = likeStore.likeCount + 1;
 
-  response.json(likeStore);
-
-  fs.writeFile('likes.json', JSON.stringify(likeStore), (error, data) => {
-    if (error) {
-      throw error;
-    }
-
-    console.log('new likeCount added to likes.json');
-  });
-});
-
-app.listen(3001, function() {
- console.log('Web server started on port 3001');
+app.listen(3000, function() {
+ console.log('Web server started on port 3000');
 });
