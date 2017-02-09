@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git+https://github.com/izelnakri/nycda-users-app.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": ""
+    "url": "https://github.com/izelnakri/nycda-users-app/issues"
   },
-  "homepage": "",
+  "homepage": "https://github.com/izelnakri/nycda-users-app#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
