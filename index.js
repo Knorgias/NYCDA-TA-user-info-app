@@ -6,7 +6,6 @@ const express = require('express'),
 
 const userRoutes = require('./routes/users'),
 			searchRoutes = require('./routes/search'),
-			resultRoutes = require('./routes/search'),
 			addRoutes = require('./routes/add-user');
 
 const app = express();
