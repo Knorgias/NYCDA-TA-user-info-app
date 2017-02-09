@@ -7,7 +7,7 @@ const userStore = require('./../user-reader');
 
 
 router.get('/', (request, response) => {
-  response.render('search/search');
+  response.render('search/search-users');
 });
 
 router.post('/', (request, reponse) => {

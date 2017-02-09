@@ -24,7 +24,3 @@ $('#search-button input').on('keyup', function() {
       });
     }
   });
-
-// $('.btn-info').on('click', function(){
-//   $.get('/search/' + query, function(data) {
-//     });
